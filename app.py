@@ -33,20 +33,20 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 for msg in st.session_state.messages:
-with st.chat_message(msg["role"]):
-st.markdown(msg["content"])
+ with st.chat_message(msg["role"]):
+  st.markdown(msg["content"])
 
 if user_input := st.chat_input("اكتب سؤالك أو ما تريد الاستشارة فيه..."):
-st.session_state.messages.append({"role": "user", "content": user_input})
-with st.chat_message("user"):
-st.markdown(user_input)
+ st.session_state.messages.append({"role": "user", "content": user_input})
+ with st.chat_message("user"):
+  st.markdown(user_input)
 
-prompt = f"{system_instructions[advisor_mode]}\n\nسؤال الطالب: {user_input}"
+ prompt = f"{system_instructions[advisor_mode]}\n\nسؤال الطالب: {user_input}"
 
-with st.chat_message("assistant"):
-response = client.models.generate_content(
-model='gemini-2.5-flash',
-contents=prompt
+ with st.chat_message("assistant"):
+  response = client.models.generate_content(
+  model='gemini-2.5-flash',
+  contents=prompt
 )
-st.markdown(response.text)
-st.session_state.messages.append({"role": "assistant", "content": response.text})
+  st.markdown(response.text)
+  st.session_state.messages.append({"role": "assistant", "content": response.text})
