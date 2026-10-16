@@ -10,7 +10,7 @@ api_key = st.secrets["GEMINI_API_KEY"]
 client = genai.Client(api_key=api_key)
 
 advisor_mode = st.selectbox(
-    ,":اختر مجال الاستشارة اليوم"
+    ":اختر مجال الاستشارة اليوم,"
 [
 "🕌 التقرب إلى الله والدين (الصلاة والروحانيات)",
 "💰 إدارة المال والمصروف اليومي",
