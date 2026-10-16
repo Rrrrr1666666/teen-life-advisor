@@ -29,7 +29,8 @@ system_instructions = {
 }
 
 if "messages" not in st.session_state:
-st.session_state.messages = []
+
+    st.session_state.messages = []
 
 for msg in st.session_state.messages:
 with st.chat_message(msg["role"]):
